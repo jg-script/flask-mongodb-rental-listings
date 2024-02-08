@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Listings</title>
+    <style>
+        /* Dark-themed styles */
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .listing {
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 18px;
+            color: #69d22e;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            font-size: 18px;
+            color: #bdbdbd;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+
+        .image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rental Listings</h1>
+    <div class="container">
+    {% for item in data %}
+        <div class="listing">
+            <div class="title">{{ item.title }}</div>
+            <div class="price">Price: ${{ item.price }}</div>
+            <div class="location">Location: {{ item.location }}</div>
+            <div class="image-container">
+                <img class="image" src="{{ item.image_url }}" alt="{{ item.title }}">
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</body>
+</html>
